@@ -34,11 +34,13 @@
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| name | 商品名称，非必填项 | String | null |
-| sold | 已经销售的商品件数，非必填项 | Number | null |
+| name | 商品名称 | String | null |
+| sold | 已经销售的商品件数 | Number | null |
 | thumb | 图片链接 | String | null |
 | price | 商品现价 | Number | null |
 | discountPrice | 商品原价 | Number | null |
+| slottop | 图片上部插件 | String | null |
+| slotbot | 图片底部插件 | String | null |
 
 
 ## 事件

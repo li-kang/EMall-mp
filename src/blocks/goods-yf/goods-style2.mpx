@@ -1,6 +1,5 @@
 <template>
   <view class="wrap" bind:tap="onclick">
-      <slot name="top"></slot>
       <view class="pic-wrap">
           <image class="pic" src="{{thumb}}" mode="scaleToFill"></image>
       </view>
@@ -10,7 +9,8 @@
           <text class="discount">{{computedDiscountPrice}}</text>
           <view class="sold">{{computedSold}}</view>
       </view>
-      <slot name="bottom"></slot>
+      <view class="top">{{slottop}}</view>
+      <view class="bottom">{{slotbot}}</view>
   </view>
 </template>
 
@@ -38,6 +38,8 @@
         discountPrice:{
             type:Number,
         },
+        slottop:String,
+        slotbot:String,
     },
     computed:{
         computedSold(){
@@ -80,6 +82,33 @@
     height: 418rpx;
     padding:20rpx 10rpx;
     border:5rpx #eee solid;
+    position: relative;
+}
+.top{
+    position: absolute;
+    top: 8rpx;
+    left: 4rpx;
+    width: 70rpx;
+    height: 60rpx;
+    background-color: pink;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #fff;
+    z-index: 2;
+    text-align: center;
+}
+.bottom{
+    width: 150rpx;
+    position: absolute;
+    bottom: 190rpx;
+    left: 100rpx;
+    background-color: pink;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 20rpx;
+    z-index: 2;
 }
 .pic-wrap{
     flex-grow: 1;

@@ -6,9 +6,9 @@
     thumb="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563561838686&di=98c5d8b4333f79bf40f9184fe42be11f&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F16%2F05%2F01300000089596120609052312176.jpg"
     price='10'
     discountPrice='30'
+    slottop="爆品"
+    slotbot="省4.89"
   >
-    <view class="top" slot="top">爆品</view>
-    <view class="bottom" slot="bottom">省4.91</view>
   </yz-goods-style2>
 </template>
 
@@ -21,35 +21,7 @@
 </script>
 
 <style>
-.wrap{
-  position: relative;
-}
-.top{
-    position: absolute;
-    top: 8rpx;
-    left: 4rpx;
-    width: 70rpx;
-    height: 60rpx;
-    background-color: pink;
-    font-size: 28rpx;
-    line-height: 40rpx;
-    color: #fff;
-    z-index: 2;
-    text-align: center;
-}
-.bottom{
-    width: 150rpx;
-    position: absolute;
-    bottom: 190rpx;
-    left: 100rpx;
-    background-color: pink;
-    font-size: 24rpx;
-    line-height: 40rpx;
-    color: #fff;
-    text-align: center;
-    border-radius: 20rpx;
-    z-index: 2;
-}
+
 </style>
 
 <script type="application/json">
