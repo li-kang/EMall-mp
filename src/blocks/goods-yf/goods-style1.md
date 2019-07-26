@@ -35,8 +35,8 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | classname | 如果填写则必须填写“wrap” | String | wrap |
-| sold | 已经销售的商品件数，非必填项 | tring，Number | null |
-| surplus | 剩余商品数量，非必填项 | String，Number | null |
+| sold | 已经销售的商品件数，非必填项 | Number | null |
+| surplus | 剩余商品数量，非必填项 | Number | null |
 | thumb | 图片链接 | String | null |
 | price | 商品现价 | Number | null |
 | discountPrice | 商品原价 | Number | null |
@@ -46,4 +46,4 @@
 
 |事件名	| 说明 | 参数|
 | --- | --- | --- |
-|tap	| 暂时没有 | goods:商品数据|
+|onclick	| 暂时没有 | goods:商品数据|
