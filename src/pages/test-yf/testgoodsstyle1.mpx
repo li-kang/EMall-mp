@@ -1,0 +1,47 @@
+<template>
+  <yz-goods-style1
+    classname="wrap"
+    name='[每人限购一份] 小葱 70g/份'
+    sold='100000'
+    surplus='1923'
+    thumb="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563613406943&di=32463e9ffc64925fb152d8b4493b4b36&imgtype=0&src=http%3A%2F%2Fs9.sinaimg.cn%2Fmw690%2F006hikKrzy7pzDEQbFe68%26690"
+    price='10'
+    discountPrice='30'
+  >
+  <view class="top">特价</view>
+  </yz-goods-style1>
+</template>
+
+<script>
+  import { createPage } from '@mpxjs/core'
+
+  createPage({
+    onLoad () {}
+  })
+</script>
+
+<style>
+.wrap{
+  position: relative;
+}
+.top{
+    position: absolute;
+    top: 10rpx;
+    left: 4rpx;
+    width: 50rpx;
+    height: 50rpx;
+    background-color: pink;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: #fff;
+    z-index: 2;
+}
+</style>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+      "yz-goods-style1": "../../blocks/goods-yf/goods-style1"
+    }
+  }
+</script>

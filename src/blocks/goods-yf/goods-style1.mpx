@@ -1,0 +1,161 @@
+<template>
+  <view class="{{classname}}" bind:tap="onclick">
+      <view class="pic-wrap">
+          <image class="pic" src="{{thumb}}" mode="scaleToFill"></image>
+      </view>
+      <view class="content">
+          <view class="name">{{name}}</view>
+          <view class="sold">{{computedSold}}</view>
+          <view class="surplus" style="{{computedbc}}">{{computedSurplus}}</view>
+          <text class="price">{{computedprice}}</text>
+          <text class="discount">{{computedDiscountPrice}}</text>
+      </view>
+      <slot></slot>
+  </view>
+</template>
+
+<script>
+  import { createComponent } from '@mpxjs/core'
+
+  createComponent({
+    methods:{
+        onclick(){
+            console.log("你点击了商品")
+        }
+    },
+    properties:{
+        classname:{
+            type:String,
+            value:"wrap"
+        },
+        thumb:String,
+        name:String,
+        sold:{
+            type:[String,Number]
+        },
+        surplus:{
+            type:[String,Number]
+        },
+        price:{
+            type:[String,Number]
+        },
+        discountPrice:{
+            type:[String,Number]
+        },
+    },
+    computed:{
+        computedSold(){
+            let value = this.data.sold
+            if(!value){
+                return " "
+            }
+            if(value<=10000){
+                return "已售"+value+"件";
+            }else if(value<=100000){
+                return "已售"+(value/10000).toFixed(1)+"万件";
+            }else{
+                return "已售"+parseInt(value/100000)+"万件";
+            }
+        },
+        computedSurplus(){
+            let value = this.data.surplus
+            if(!value){
+                return " "
+            }else{
+                return "剩余"+value+"件";
+            }
+        },
+        computedbc(){
+            let value = this.data.surplus
+            if(!value){
+                return 'background-color: #fff;'
+            }else{
+                return "background-color: pink;";
+            }
+        },
+        // 价钱规则是一样的   但是数据不一样 又不能传参数  值得思考
+        computedprice(){
+            let value = this.data.price
+            if(!value){
+                return "";
+            }
+            return "¥"+(value/100).toFixed(2)
+        },
+        computedDiscountPrice(){
+            let value = this.data.discountPrice
+            if(!value){
+                return "";
+            }
+            return "¥"+(value/100).toFixed(2)
+        },
+    },
+  })
+</script>
+
+<style>
+.wrap{
+    display:flex;
+    width:750rpx;
+    height: 206rpx;
+    padding:20rpx 0;
+    border-bottom:0.75rpx #eee solid;
+    /* position: relative;  无效 */
+}
+.pic-wrap{
+    width: 225rpx;
+    flex-shrink: 0;
+    text-align: center;
+}
+.pic-wrap .pic{
+    width: 210rpx;
+    height: 196rpx;
+    border:5rpx #eee solid;
+    box-sizing: border-box;
+}
+.content{
+    flex-grow: 1;
+}
+.content .name{
+    height: 50rpx;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    white-space: pre-wrap;
+}
+.content .sold{
+    height: 40rpx;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: #999;
+}
+.content .surplus{
+    width: 180rpx;
+    height: 40rpx;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: #fff;
+    text-align: center;
+    background-color: pink;
+    border-radius: 30rpx;
+    margin: 10rpx 0;
+}
+.price{
+    height: 44rpx;
+    font-size: 32rpx;
+    line-height: 44rpx;
+    color: pink;
+    margin-right: 15rpx;
+}
+.discount{
+    height: 44rpx;
+    font-size: 26rpx;
+    line-height: 44rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+</style>
+
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>
