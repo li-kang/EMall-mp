@@ -1,15 +1,15 @@
 
 # 介绍
 
-> 优惠券展示组件，一行展示一张优惠券。
+> 优惠券页面展示组件，展示优惠券模块。
 
 ## 预览
-![组件效果](image/couponstyle.png)
+![组件效果](image/couponwrap.png)
 
 ## 引用
 ```json
 "usingComponents": {
-  "em-goods": "path/to/blocks/coupon-yf/couponstyle"
+  "em-goods": "path/to/blocks/coupon-yf/couponwrap"
 }
 ```
 
@@ -17,20 +17,16 @@
 
 基本使用方法
 ```html
-<yz-coupon-style
-    describe="描述信息"
-    price="1.5元"
-    limit="无使用门槛"
-    detail="最多优惠12元"
-    name="优惠券名称"
-    effective="有效期：2019.08.10 - 2019.12.30"
-  >
-</yz-coupon-style>
+<yz-couponwrap acprops="{{acprops}}" noprops="{{noprops}}"></yz-couponwrap>
 ```
 
 ## 属性
-
 | 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| acprops | 激活状态的优惠券,具体数据查看下表 | Array | null |
+| noprops | 失效状态的优惠券,具体数据查看下表 | Array | null |
+
+| key | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | switcherac | 是否为激活状态，即字体是否显示红色 | String,Boolean | "true" |
 | describe | 底部描述信息 | String | null |
@@ -40,9 +36,8 @@
 | name | 优惠券名称 | String | null |
 | effective | 如：有效期：2019.08.10 - 2019.12.30 | String | null |
 
-备注：之所以属性不减化成Object的形式，主要考虑到用户的数据结构可能和我们定义的不一样，比如我们用name作为商品介绍，用户可能用title,这样就有冲突了，反而不好设置
 ## 事件
 
 |事件名	| 说明 | 参数|
 | --- | --- | --- |
-|onclick	| 暂时没有 | |
+|暂时没有 |

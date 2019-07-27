@@ -24,9 +24,9 @@
     thumb="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563561838686&di=98c5d8b4333f79bf40f9184fe42be11f&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F16%2F05%2F01300000089596120609052312176.jpg"
     price='10'
     discountPrice='30'
+    slottop="爆品"
+    slotbot="省4.89"
   >
-    <view class="top" slot="top">爆品</view>
-    <view class="bottom" slot="bottom">省4.91</view>
   </yz-goods-style2>
 ```
 
@@ -41,7 +41,7 @@
 | discountPrice | 商品原价 | Number | null |
 | slottop | 图片上部插件 | String | null |
 | slotbot | 图片底部插件 | String | null |
-
+备注：之所以属性不减化成Object的形式，主要考虑到用户的数据结构可能和我们定义的不一样，比如我们用name作为商品介绍，用户可能用title,这样就有冲突了，反而不好设置
 
 ## 事件
 

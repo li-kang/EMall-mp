@@ -35,11 +35,14 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | classname | 如果填写则必须填写“wrap” | String | wrap |
+| name | 商品介绍 | String | null |
 | sold | 已经销售的商品件数，非必填项 | Number | null |
 | surplus | 剩余商品数量，非必填项 | Number | null |
 | thumb | 图片链接 | String | null |
 | price | 商品现价 | Number | null |
 | discountPrice | 商品原价 | Number | null |
+
+备注：之所以属性不减化成Object的形式，主要考虑到用户的数据结构可能和我们定义的不一样，比如我们用name作为商品介绍，用户可能用title,这样就有冲突了，反而不好设置
 
 
 ## 事件
