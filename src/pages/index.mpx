@@ -1,5 +1,7 @@
 <template>
-  <list></list>
+  <view>
+    <address save="保存" saveColor="red" del="删除"/>
+  </view>
 </template>
 
 <script>
@@ -13,7 +15,8 @@
 <script type="application/json">
   {
     "usingComponents": {
-      "list": "../components/list"
+      "list": "../components/list",
+      "address":"../blocks/goods-mmy/addressEdit"
     }
   }
 </script>

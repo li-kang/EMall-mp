@@ -1,0 +1,131 @@
+<template>
+  <view class="background">
+    <view class="header">
+      <view class="title">
+        AddressEdit 地址编辑
+      </view>
+    </view>
+    <view class="inputAdd">
+      <van-cell-group>
+        <van-cell-group>
+          <van-field
+            label="姓名"
+            placeholder="收货人姓名"
+            value="{{}}"
+          />
+          <van-field
+            label="电话"
+            placeholder="收获人电话"
+            value="{{}}"
+          />
+          <van-field
+            label="详细地址"
+            placeholder="街道门牌，楼层房间号等信息"
+            value="{{}}"
+          />
+          <van-field
+            label="邮政编码"
+            placeholder="邮政编码"
+            value="{{}}"
+          />
+          <van-cell title="地区" value="{{name}}" border="{{ false }}" bind:tap="onTap"/>
+        </van-cell-group>
+        <van-switch-cell
+          title="设为默认收货地址"
+          checked="{{ checked }}"
+          bind:change="onChange"
+         />
+    </view>
+      <view class="address">
+        <van-area area-list="{{ areaList }}" columns-num="{{ 3 }}" title="地区选择" wx-if="{{boolen}}" bind:change="getValue"/>
+      </view>
+      <view class="btn">
+        <button class="save" style="background-color:{{saveColor}}">{{save}}</button>
+        <button style="background-color:{{delColor}}">{{del}}</button>
+      </view>
+  </view>
+</template>
+
+<script>
+import areaList from "./api/area.js";
+import { createPage } from "@mpxjs/core";
+createPage({
+  properties:{
+    save:String,
+    saveColor:String,
+    del:String,
+    delColor:String
+  },
+  data: {
+    checked:false,
+    areaList:[],
+    boolen:false,
+    name:[],
+    alldate:[]
+  },
+  onTap(ev){
+    // console.log(ev);
+    // console.log(this.data.areaList);
+    this.setData({
+      areaList
+    })
+    this.data.boolen = !this.data.boolen;
+    // console.log(this.data.boolen);
+    this.setData({
+      boolen:this.data.boolen
+    })
+  },
+  getValue(ev){
+    let nameNew = ev.detail.values;
+    let push = `${nameNew[0].name}/${nameNew[1].name}/${nameNew[2].name}`
+    this.setData({
+      name:push
+    })
+    // console.log(push);
+  },
+  onChange(event) {
+    // 需要手动对 checked 状态进行更新
+    this.setData({ checked: event.detail });
+  },
+  onLoad() {}
+});
+</script>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+     "van-field": "vant-weapp/dist/field",
+     "van-cell-group":"vant-weapp/dist/cell-group",
+     "van-switch-cell": "vant-weapp/dist/switch-cell",
+     "van-area": "vant-weapp/dist/area",
+     "van-cell": "vant-weapp/dist/cell"
+     }
+  }
+</script>
+<style>
+.title{
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  margin-bottom: 120rpx;
+  background-color: #fff;
+}
+.background{
+  background-color: rgb(243, 242, 242);
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+.inputAdd{
+  margin-bottom:80rpx;
+}
+.save{
+  margin-bottom: 30rpx;
+  color: #fff;
+}
+.address{
+  margin-bottom: 40rpx;
+}
+</style>
+
