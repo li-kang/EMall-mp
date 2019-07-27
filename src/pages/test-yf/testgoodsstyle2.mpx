@@ -1,0 +1,33 @@
+<template>
+  <yz-goods-style2
+    class="wrap"
+    name='[每人限购一份] 小葱70g/份'
+    sold='100000'
+    thumb="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563561838686&di=98c5d8b4333f79bf40f9184fe42be11f&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F16%2F05%2F01300000089596120609052312176.jpg"
+    price='10'
+    discountPrice='30'
+    slottop="爆品"
+    slotbot="省4.89"
+  >
+  </yz-goods-style2>
+</template>
+
+<script>
+  import { createPage } from '@mpxjs/core'
+
+  createPage({
+    onLoad () {}
+  })
+</script>
+
+<style>
+
+</style>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+      "yz-goods-style2": "../../blocks/goods-yf/goods-style2"
+    }
+  }
+</script>

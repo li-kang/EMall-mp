@@ -1,0 +1,32 @@
+<template>
+  <yz-coupon-style
+    switcherac="false"
+    describe="描述信息"
+    price="1.5元"
+    limit="无使用门槛"
+    detail="最多优惠12元"
+    name="优惠券名称"
+    effective="有效期：2019.08.10 - 2019.12.30"
+  >
+  </yz-coupon-style>
+</template>
+
+<script>
+  import { createPage } from '@mpxjs/core'
+
+  createPage({
+    onLoad () {}
+  })
+</script>
+
+<style>
+
+</style>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+      "yz-coupon-style": "../../blocks/coupon-yf/couponstyle"
+    }
+  }
+</script>

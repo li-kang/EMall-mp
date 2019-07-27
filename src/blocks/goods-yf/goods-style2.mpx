@@ -1,0 +1,157 @@
+<template>
+  <view class="wrap" bind:tap="onclick">
+      <view class="pic-wrap">
+          <image class="pic" src="{{thumb}}" mode="scaleToFill"></image>
+      </view>
+      <view class="content">
+          <view class="name">{{name}}</view>
+          <text class="price">{{computedprice}}</text>
+          <text class="discount">{{computedDiscountPrice}}</text>
+          <view class="sold">{{computedSold}}</view>
+      </view>
+      <view class="top">{{slottop}}</view>
+      <view class="bottom">{{slotbot}}</view>
+  </view>
+</template>
+
+<script>
+  import { createComponent } from '@mpxjs/core'
+
+  createComponent({
+    options: {
+        multipleSlots: true // 在组件定义时的选项中启用多slot支持
+    },
+    methods:{
+        onclick(){
+            console.log("你点击了商品")
+        }
+    },
+    properties:{
+        thumb:String,
+        name:String,
+        sold:{
+            type:Number,
+        },
+        price:{
+            type:Number,
+        },
+        discountPrice:{
+            type:Number,
+        },
+        slottop:String,
+        slotbot:String,
+    },
+    computed:{
+        computedSold(){
+            let value = this.data.sold
+            if(!value){
+                return ""
+            }
+            if(value<=10000){
+                return "已售"+value+"件";
+            }else if(value<=100000){
+                return "已售"+(value/10000).toFixed(1)+"万件";
+            }else{
+                return "已售"+parseInt(value/100000)+"万件";
+            }
+        },
+        // 价钱规则是一样的   但是数据不一样 又不能传参数  值得思考
+        computedprice(){
+            let value = this.data.price
+            if(!value){
+                return "";
+            }
+            return "¥"+(value/100).toFixed(2)
+        },
+        computedDiscountPrice(){
+            let value = this.data.discountPrice
+            if(!value){
+                return "";
+            }
+            return "¥"+(value/100).toFixed(2)
+        },
+    },
+  })
+</script>
+
+<style>
+.wrap{
+    display: flex;
+    flex-direction: column;
+    width:340rpx;
+    height: 418rpx;
+    padding:20rpx 10rpx;
+    border:5rpx #eee solid;
+    position: relative;
+}
+.top{
+    position: absolute;
+    top: 8rpx;
+    left: 4rpx;
+    width: 70rpx;
+    height: 60rpx;
+    background-color: pink;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #fff;
+    z-index: 2;
+    text-align: center;
+}
+.bottom{
+    width: 150rpx;
+    position: absolute;
+    bottom: 190rpx;
+    left: 100rpx;
+    background-color: pink;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 20rpx;
+    z-index: 2;
+}
+.pic-wrap{
+    flex-grow: 1;
+    width: 330rpx;
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+.pic{
+    width: 300rpx;
+    height: 196rpx;
+}
+.content{
+    flex-grow: 0;
+    height: 166rpx;
+}
+.content .name{
+    height: 80rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    white-space: pre-wrap;
+}
+.price{
+    font-size: 32rpx;
+    line-height: 44rpx;
+    color: pink;
+    margin-right: 15rpx;
+}
+.discount{
+    font-size: 26rpx;
+    line-height: 44rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+.content .sold{
+    height: 40rpx;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: #999;
+}
+</style>
+
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>
