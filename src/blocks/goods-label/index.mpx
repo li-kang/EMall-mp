@@ -1,0 +1,49 @@
+<template>
+  <view class="wrap">
+    <slot></slot>
+    <text class="text" style="background:{{bccolor}};">{{value}}</text>
+  </view>
+</template>
+
+<script>
+  import { createComponent } from '@mpxjs/core'
+
+  createComponent({
+   properties:{
+       bccolor:{
+           type:String
+       },
+       value:{
+           type:String,
+       }
+   }
+  })
+</script>
+
+
+<style lang="less">
+  .text{
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        width: 30rpx;  
+        margin: 0 auto;  
+        text-align: center;
+        line-height: 40rpx;  
+        font-size: 30rpx;  
+        word-wrap: break-word;
+        position: absolute;
+        left: 0rpx;
+        top: 40%;
+  }
+  .wrap {
+      position: relative;
+      background: #ccc;   
+  }
+</style>
+
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>
