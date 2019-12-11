@@ -14,9 +14,10 @@
 <script type="application/json">
   {
     "pages": [
-      "./pages/test-yf/testcouponstyle.mpx",
-      "./pages/test-yf/testgoodsstyle2.mpx",
-      "./pages/test-yf/testgoodsstyle1.mpx",
+      "./pages/test-yf/testgoodsstyle1",
+      "./pages/test-yf/testgoodsstyle2",
+      "./pages/test-yf/testcouponstyle",
+      "./pages/test-yf/testcouponwrap",
       "./pages/index"
     ]
   }
